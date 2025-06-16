@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+body {
+    background: linear-gradient(to bottom, #000, #999);
+}
+
+
+
+
+/* seção o que deseja fazer */
+
+
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid black;
+    gap: 3rem;
+    padding: 0 30px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #000, #002481);
+    margin-bottom: 200px;
+}
+section h1 {
+    font-size: xx-large;
+    font-weight: 900;
+    background-color:#4A7C59 ;
+    color: #2E3A59;
+    min-width: 100%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px 10px 0 0 ;
+    text-shadow: 2px 2px 2px rgb(16, 241, 16);
+}
+
+#para-btns {
+    font-size: x-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 90%;
+    padding: 25px;
+    text-align: center;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+}
+
+div {
+    padding: 30px;
+}
+
+.btns {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border-bottom:2px dashed rgb(93, 93, 93) ;
+    border-left: 2px dashed rgb(93, 93, 93);
+    border-right: 2px dashed rgb(93, 93, 93);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 2px rgb(116, 116, 116);
+
+
+}
+
+.btns button {
+    padding: 20px;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: 700;
+    width: 90%;
+}
+#btn-add {
+    background-color: #1cc14d;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+}
+#btn-add:hover {
+    cursor: pointer;
+    background-color: #4A7C59;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+}
+#btn-edit {
+    background-color:#F4D35E;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+}
+#btn-edit:hover {
+    cursor: pointer;
+    background-color: #8b7116;
+}
+
+#btn-del {
+    background-color: #D93A30;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+        box-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+}
+#btn-del:hover {
+    cursor: pointer;
+    background-color: rgb(155, 2, 2);
+}
+
+
+/* Area de relatorio */
+
+
+.btns-visualizadores {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    border: 2px dashed gray;
+    height: auto;
+    padding: 50px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+
+    
+}
+
+.btns-visualizadores h3 {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 100%;
+    padding: 25px;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns-visualizadores label {
+    font-size: large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 70%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#relatorio-vizu {
+        font-size: large;
+    font-weight: 700;
+    color: #bc0404;
+    width: 70%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    text-align: center;
+}
+#btn-vizu-all {
+    padding: 30px;
+    width: 60%;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #32cd60;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+}
+#btn-vizu-all:hover {
+    background-color: #4A7C59;
+    cursor: pointer;
+}
+
+
+/* Area da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+th, td {
+    border: 2px dashed black;
+    padding: 18px;
+    text-align: center;
+}
+.tabela-vizu {
+    background-color: #EAEAEA ;
+    width: 100%;
+    font-size: xx-large;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    gap: 2rem;
+
+    display: none;
+}
+
+td:nth-child(2) {
+    color: rgb(3, 236, 3);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+
+}
+
+#btn-fechar-resumo {
+
+
+    background-color: #D93A30;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: 700;
+    width: 50%;
+    margin: 20px auto;
+
+
+
+
+}
+#btn-fechar-resumo:hover{
+    cursor: pointer;
+    background-color: rgb(155, 2, 2);
+}
+
+
+/* Area especifica */
+
+
+
+.area-especifica {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    border: 2px dashed gray;
+    height: auto;
+    padding: 50px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+}
+.area-especifica h3 {
+    font-size: x-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 100%;
+    padding: 25px;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.area-especifica label {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 70%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mes {
+    font-size: large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 50%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-mes {
+    padding: 30px;
+    width: 60%;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #6720ff;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+}
+
+#btn-mes:hover {
+    cursor: pointer;
+    background-color: #2E3A59;
+}
+
+
+
+
+

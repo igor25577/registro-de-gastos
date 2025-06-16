@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrador de Despesas</title>
+    <!-- css -->
+     <link rel="stylesheet" href="../recursos/css/style.css">
+
+     <script src="../recursos/js/script.js" defer></script>
+</head>
+<body>
+    <section>
+        <h1>💰 Registrador de Despesas 💰</h1>
+        <p id="para-btns">O que Deseja Fazer ?</p>
+        <div class="btns">
+            <a href="pagina_adicionar.html">
+                <button id="btn-add">💸  Adicionar Despesa  💸</button>
+            </a>
+            <a href="pagina_editar.html">
+                <button id="btn-edit">📝 Editar Despesa 📝</button>
+            </a>
+            <a href="pagina_apagar.html">
+                <button id="btn-del"> ❌ Apagar Despesa ❌ </button>
+            </a>
+        </div>
+        <div class="btns-visualizadores">
+            <h3>Deseja um relatorio Mais Especifico ?</h3>
+            <label for="relatorio">Escolha o tipo do relatório:</label>
+            <select id="relatorio-vizu" >
+                <option value="1">Todas as despesas inclusas</option>
+                <option value="2">Resumo de todas as despesas</option>
+            </select>
+            <button id="btn-vizu-all">📊 Visualizar despesas 📊</button>
+
+        <div class="tabela-vizu">
+            <table class="tabela-resumo">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor Gasto</th>
+                        <th>Data de inclusão</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- linhas serão inseridas aqui -->
+                </tbody>
+
+            </table>
+            <button id="btn-fechar-resumo">Fechar Resumo</button>
+        </div>
+        </div>
+        <div class="area-especifica">
+            <h3>Deseja um relatorio resumido e especifico de acordo com o Mês desejado ?</h3>
+            <label for="mes">Escolha o mês: </label>
+            <input type="month" id="mes">
+            <button id="btn-mes">Resumir</button>
+        </div>
+    </section>
+    
+</body>
+</html>

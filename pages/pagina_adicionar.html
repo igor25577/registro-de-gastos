@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css -->
+     <link rel="stylesheet" href="../recursos/css/style2.css">
+
+     <!-- script -->
+    <script src="../recursos/js/script.js" defer></script>
+     
+</head>
+<body>
+    <section class="add-sec">
+        <h2 id="add-sec">Adicionar Despesa</h2>
+        <div class="descrição-add">
+            <div class="desc">
+                <label for="desc-desp">Dê uma breve descrição da despesa</label>
+                <textarea id="desc-desp" placeholder="EX: compra de materiais de construção"></textarea>
+            </div>
+
+            <div class="data">
+                <label for="dataAdd">Digite a data em que ocorreu a compra</label>
+                <input type="date" id="dataAdd">
+
+            </div>
+            
+            <div class="vlr">
+                <label for="valor">Insira o valor Gasto </label>
+                <div class="input-value">
+                    <input type="number" id="valor" step="0.01" placeholder="Ex:99,90" min="0"> R$
+                </div>
+            </div>
+            <button id="btn-adicionar">ADICIONAR</button>
+        </div>
+        <div class="tabela">
+            <h3>Essas são as despesas já adicionadas</h3>
+            <table class="tabela-de-gastos">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor Gasto</th>
+                        <th>Data de inclusão</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- linhas serão inseridas aqui -->
+                </tbody>
+
+            </table>
+        </div>
+        <a href="index.html">
+            <button id="btn-voltar-menu">Voltar Ao Menu Principal</button>
+        </a>
+    </section>
+
+
+</body>
+</html>

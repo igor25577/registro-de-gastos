@@ -1,0 +1,401 @@
+/* Tudo o que for da segunda pagina será adicionado e manipulado aqui */
+* {
+padding: 0;
+margin: 0;
+
+}
+body {
+        background:linear-gradient(to bottom, #000, #03003b );
+        display: flex;
+        flex-direction: column;
+        gap: 50rem;
+
+}
+
+
+/* Seção add como um todo */
+.add-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid black;
+    gap: 3rem;
+    padding: 0 30px;
+    border-radius: 10px;
+    background:linear-gradient(to bottom, #000, #4a9c4e
+ ) ;
+    
+}
+
+
+
+
+/* area titulo */
+#add-sec {
+    background-color: #EAEAEA ;
+    color: #1c3268;
+    width: 100%;
+    height: auto;
+    font-size: 80px;
+    font-weight: 700;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Div geral quadrado marcado com a borda dashed */
+.descrição-add {
+    border: 3px dashed gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 30px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px white;
+
+}
+.descrição-add label {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 95%;
+    height: auto;
+    padding: 15px;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.desc {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+#desc-desp {
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    resize: none; /* Evita redimensionamento */
+    padding: 5px 18px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+/* Area da data */
+#dataAdd {
+    font-size: large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 100%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Area de valor geral */
+.vlr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    width: 100%;
+    gap: .5rem;
+}
+
+/* area somente do input, criado mais por uma questão de alinhamento e flex box  */
+.input-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(17, 245, 17);
+    text-shadow: 1px 1px 1px black;
+}
+.vlr input {
+
+    width: 90%;
+    height: 30px;
+    border-radius: 10px;
+    resize: none; /* Evita redimensionamento */
+    padding: 5px 18px;
+    font-size: 16px;
+    text-align: center;
+
+}
+
+#btn-adicionar {
+    padding: 20px;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #1cc14d;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    width: 60%;
+}
+#btn-adicionar:hover {
+    cursor: pointer;
+    background-color: #4A7C59;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+}
+
+/* Area da tabela  */
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+th, td {
+    border: 2px dashed black;
+    padding: 18px;
+    text-align: center;
+}
+.tabela {
+    background-color: #EAEAEA ;
+    width: 100%;
+    font-size: xx-large;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    gap: 2rem;
+}
+#tabela-de-gastos {
+    width: 90%;
+    margin-bottom: 100px;
+
+
+}
+td:nth-child(2) {
+    color: rgb(3, 236, 3);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+
+}
+
+#btn-voltar-menu {
+    background-color:#01446d;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: 700;
+    margin-bottom:100px ;
+}
+#btn-voltar-menu:hover {
+    background-color: #2E3A59;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Seção editar */
+
+
+
+
+.edit-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid black;
+    gap: 3rem;
+    padding: 0 30px;
+    border-radius: 10px;
+    background:linear-gradient(to bottom, #000, #837316) ;
+    
+}
+#edit-sec {
+    background-color: #EAEAEA ;
+    color: #1c3268;
+    width: 100%;
+    height: auto;
+    font-size: 80px;
+    font-weight: 700;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.descrição-edit {
+    border: 3px dashed gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 30px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px white;
+
+}
+#desc-desp-edit {
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    resize: none; /* Evita redimensionamento */
+    padding: 5px 18px;
+    font-size: 16px;
+    text-align: center;
+}
+.descrição-edit label {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 95%;
+    height: auto;
+    padding: 15px;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#btn-editar {
+    padding: 20px;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #F4D35E;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    width: 60%;
+}
+#btn-editar:hover {
+    cursor: pointer;
+    background-color: #8b7116;
+}
+#seletor-edit {
+    margin-top: 10px;
+    font-size: large;
+    font-weight: 700;
+    color: #bc0404;
+    width: 100%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    text-align: center;
+}
+
+
+
+
+/* seção Deletar */
+
+
+
+
+
+.del-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid black;
+    gap: 3rem;
+    padding: 0 30px;
+    border-radius: 10px;
+    background:linear-gradient(to bottom, #000, #9c4a4a
+ ) ;
+    
+}
+#del-sec {
+    background-color: #EAEAEA ;
+    color: #1c3268;
+    width: 100%;
+    height: auto;
+    font-size: 80px;
+    font-weight: 700;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.descrição-del {
+    border: 3px dashed gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 30px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px white;
+
+}
+.descrição-del label {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 95%;
+    height: auto;
+    padding: 15px;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#btn-deletar {
+    padding: 20px;
+    border-radius: 5px;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #D93A30;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    width: 60%;
+}
+#btn-deletar:hover {
+    cursor: pointer;
+    background-color: rgb(155, 2, 2);
+
+
+}
+#seletor-del {
+    margin-top: 10px;
+    font-size: large;
+    font-weight: 700;
+    color: #bc0404;
+    width: 100%;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+    height: 40px;
+    text-align: center;
+}
