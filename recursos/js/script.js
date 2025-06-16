@@ -28,9 +28,15 @@ const btnVizu = document.querySelector("#btn-vizu-all")
 const tabelavizu = document.querySelector(".tabela-vizu")
 const btnFecharResumo = document.querySelector("#btn-fechar-resumo")
 
+const defLimite = document.querySelector("#limite")
+const btnDefinir = document.querySelector("#btn-definir")
+
 // seleção area especifica
 const mes = document.querySelector("#mes")
+const areaTab = document.querySelector(".area-tab-filtrada")
+const tabFiltrada = document.querySelector("#tabela-filtrada")
 const btnFiltrar = document.querySelector("#btn-mes")
+const btnfecharResumoMes = document.querySelector("#btn-fechar-resumo-mes")
 
 
 
@@ -45,7 +51,14 @@ function zerar () {
 // função formatar data
 function formatarData(data) {
     const partes = data.split("-");
-    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+
+    if (partes.length === 3) {
+        return `${partes[2]}/${partes[1]}/${partes[0]}`; // dia/mês/ano
+    } else if (partes.length === 2) {
+        return `${partes[1]}/${partes[0]}`; // mês/ano
+    } else {
+        return data; // formato desconhecido
+    }
 }
 
 // função de adicionar valores a tabela
@@ -276,6 +289,50 @@ function deletar () {
 
 
 
+// função para definir um limite
+function salvarLimite(limite) {
+
+    if( limite) {
+        localStorage.setItem("limite", limite)
+        const valorlimite = Number(localStorage.getItem("limite"))
+        console.log(`Novo Limite definido é de ${valorlimite.toFixed(2)}`)
+
+    }
+    else {
+        console.log("limite não definido")
+    }
+}
+
+
+
+
+// função para verificar o limite
+
+
+
+function verificadorLimite(tot) {
+    
+    const limit = Number(localStorage.getItem("limite"))
+
+    if (!limit) {
+        return `limite não definido`
+    }
+    if (!isNaN(tot) && !isNaN(limit)) {
+        if (limit < tot) {
+            return `<span style="color:red;">limite R$: ${limit.toFixed(2)} excedido </span>`
+        }
+        else {
+            return `<span style="color:green;">limite de ${limit.toFixed(2)}R$ não excedido <span>`
+        }
+    } else {
+        return "limite em formato invalido ou não definido"
+    }
+}
+
+
+
+
+
 
 // função de limpar campos
 function resetar () {
@@ -304,7 +361,11 @@ function somar() {
             const valor = Number(valorLimpo);
 
             if (!isNaN(valor) && valor >= 0) {
-                total += valor ;
+                total = total + valor / 100;
+                // a divisão por 100 ocorre pois os dados entram formatados, e quando retiramos a formatação ele entra como se fosse 2 casas decimais maiores,
+                // ou seja o valor é multiplicado por 100, então algo que estava com o valor de 10R$ na tabela fica como se fosse 1000R$, então após retirarmos
+                // a formatação, temos que dividi-los para que saia essa casa decimal a mais
+
             }
         }
     });
@@ -315,35 +376,105 @@ function somar() {
 
 
 // Função para visualizar despesas
+
+
 function despesas () {
-    let dados = JSON.parse(localStorage.getItem("tabela")) || []
     const vizutab = tabelavizu
     const tabela = document.querySelector(".tabela-resumo")
+    const tbody = tabela.querySelector("tbody")
     let valorSelect = document.querySelector("#relatorio-vizu")
-    const total = somar() / 100 
+    const total = somar() 
+    const limit = verificadorLimite(total)
 
     if (tabela){
         if (valorSelect) {
+                if (valorSelect.value == 1) {
+                    const antigaLinhaTotal = tabela.querySelector("tr.linha-total")
+                    if (antigaLinhaTotal) antigaLinhaTotal.remove()
 
-            if(valorSelect.value == 1) {
-                
-                carregarTabela()
+                    let trtotal = document.createElement("tr")
+                    trtotal.classList.add("linha-total")
+                    trtotal.innerHTML = `<td> TOTAL</td><td>R$ ${total.toFixed(2)}</td><td>${limit}</td>`
 
-                let trtotal = document.createElement("tr")
-                trtotal.innerHTML = `<td> TOTAL</td><td>R$ ${total.toFixed(2)}</td><td></td>`
+                    tabela.appendChild(trtotal)
 
-                tabela.appendChild(trtotal)
+                    vizutab.style.display = "block"
+                    
 
-                vizutab.style.display = "block"
-                
+                } else if ( valorSelect.value == 2) {
 
-            }
+                    const antigaLinhaTotal = tabela.querySelector("tr.linha-total")
+                    if (antigaLinhaTotal) antigaLinhaTotal.remove()
+
+                    tbody.innerHTML = ""
+                    let trtotal = document.createElement("tr")
+                    trtotal.classList.add("linha-total")
+                    trtotal.innerHTML = `<td> TOTAL</td><td>R$ ${total.toFixed(2)}</td><td>${limit}</td>`
+
+                    tabela.appendChild(trtotal)
+                    vizutab.style.display = "block"
+
+                }
+            
         }
     }
+}
 
+// função para filtrar por datas 
+function filtrar() {
+    let dados = JSON.parse(localStorage.getItem("tabela")) || []
+    const datatab = formatarData(mes.value)
+    const tab = document.querySelector(".tabela-filtrada")
+    const tbody = tab.querySelector("tbody")
+    let total = 0
+    tbody.innerHTML = "";
+
+
+
+    dados.forEach(dado => {
+        const datatabela = dado.data
+        const anoMes = datatabela.slice(3)
+
+        if (datatab == anoMes) {
+            let tr = document.createElement("tr")
+            tr.innerHTML = `<td>${dado.descricao}</td><td>${dado.valor}</td><td>${dado.data}</td>`
+            tbody.appendChild(tr)
+
+            // limpando o valor]
+            const valorLimpo = dado.valor
+                .toString()
+                .replace("R$", "")
+                .replace(/\s/g, "")
+                .replace(/\./g, "")
+                .replace(",", ".")
+                .trim();
+
+            const valor = Number(valorLimpo)
+            if (!isNaN(valor)){
+                total += valor / 100
+            }
+
+        }
+
+    })
+
+    const antigaLinhaTotal = tab.querySelector("tr.linha-total")
+    if (antigaLinhaTotal) antigaLinhaTotal.remove()
+
+    const limit = verificadorLimite(total)
+    let trtot = document.createElement("tr")
+    trtot.classList.add("linha-total")
+    trtot.innerHTML = `<td>TOTAL</td><td> R$ ${total.toFixed(2)}</td><td>${limit}</td>`
+    tbody.appendChild(trtot)
+
+    
 
 
 }
+
+
+
+
 
 
 
@@ -404,16 +535,26 @@ if(btnDel) {
 }
 
 
+// evento de definir limite 
+
+if (btnDefinir) {
+    btnDefinir.addEventListener("click", (e) => {
+        salvarLimite(defLimite.value)
+    })
+}
+
+
+
 // evento de visualizar 
+
 if (btnVizu) {
     btnVizu.addEventListener("click", (e) => {
 
 
         // tabelavizu.style.display = "block"
 
-
+        carregarTabela()
         despesas()
-        console.log(somar())
 
         
     })
@@ -423,12 +564,31 @@ if(btnFecharResumo) {
         e.preventDefault()
         
         tabelavizu.style.display = "none"
+        carregarTabela()
+    })
+}
+
+if(btnFiltrar) {
+    btnFiltrar.addEventListener("click", (e) => {
+        e.preventDefault()
+
+        carregarTabela()
+
+        filtrar()
+        areaTab.style.display = "block"
+    })
+}
+if(btnfecharResumoMes) {
+    btnfecharResumoMes.addEventListener("click", (e) => {
+        e.preventDefault()
+        
+        areaTab.style.display = "none"
+        carregarTabela()
     })
 }
 
 
 window.addEventListener("load", carregarTabela)
-window.addEventListener("load", somar)
 console.log("Dados no localStorage:", JSON.parse(localStorage.getItem("tabela")));
 document.addEventListener("DOMContentLoaded", carregarSelect)
 document.addEventListener("DOMContentLoaded", carregarSelectDel)

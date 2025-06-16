@@ -24,6 +24,14 @@
                 <button id="btn-del"> ❌ Apagar Despesa ❌ </button>
             </a>
         </div>
+        <div class="limite">
+            <h3>Deseja Definir um limite de Despesa ?</h3>
+            <label for="limite">Insira o valor Limite Abaixo </label>
+            <div class="area-valor">
+                <input type="number" name="limite" id="limite"> R$
+            </div>
+            <button id="btn-definir">Definir</button>
+        </div>
         <div class="btns-visualizadores">
             <h3>Deseja um relatorio Mais Especifico ?</h3>
             <label for="relatorio">Escolha o tipo do relatório:</label>
@@ -56,6 +64,25 @@
             <label for="mes">Escolha o mês: </label>
             <input type="month" id="mes">
             <button id="btn-mes">Resumir</button>
+
+        <div class="area-tab-filtrada">
+            <table class="tabela-filtrada">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor Gasto</th>
+                        <th>Data de inclusão</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- linhas serão inseridas aqui -->
+
+                </tbody>
+
+            </table>
+            <button id="btn-fechar-resumo-mes">Fechar Resumo</button>
+
         </div>
     </section>
     
