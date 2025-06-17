@@ -473,6 +473,63 @@ function filtrar() {
 }
 
 
+// FUNÇÂO DE GERAR PDF
+function gerarPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const tabela = document.querySelector(".tabela-vizu tbody");
+    const linhas = tabela.querySelectorAll("tr");
+
+    const body = [];
+    let total = 0;
+
+    linhas.forEach(tr => {
+        const cols = tr.querySelectorAll("td");
+        const linha = Array.from(cols).map(td => td.textContent.trim());
+
+        // Evita incluir a linha TOTAL no somatório
+        if (!linha[0].toUpperCase().includes("TOTAL")) {
+            const valor = parseFloat(
+                linha[1]
+                    .replace("R$", "")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+                    .trim()
+            );
+            if (!isNaN(valor)) {
+                total += valor / 100;
+            }
+        }
+
+        body.push(linha);
+    });
+
+    // Título
+    doc.setFontSize(16);
+    doc.text("Relatório de Despesas", 14, 18);
+
+    // Tabela
+    doc.autoTable({
+        head: [["Descrição", "Valor", "Data"]],
+        body: body,
+        startY: 25,
+        styles: { halign: 'left', fontSize: 12 },
+        headStyles: { fillColor: [22, 160, 133] },
+    });
+
+    // Adiciona TOTAL abaixo da tabela
+    const finalY = doc.lastAutoTable.finalY + 10;
+    doc.setFontSize(14);
+    doc.text(`Total: R$ ${total.toFixed(2)}`, 14, finalY);
+
+    // Nome do arquivo com data atual
+    const agora = new Date();
+    const mesAno = agora.toLocaleDateString("pt-BR", { year: 'numeric', month: '2-digit' }).replace("/", "-");
+    doc.save(`Despesas-${mesAno}.pdf`);
+}
+
+
 
 
 

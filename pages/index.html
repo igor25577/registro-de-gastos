@@ -7,7 +7,16 @@
     <!-- css -->
      <link rel="stylesheet" href="../recursos/css/style.css">
 
-     <script src="../recursos/js/script.js" defer></script>
+    <!-- JAVA SCRIPT -->
+    <script src="../recursos/js/script.js" defer></script>
+
+     <!-- importação de gerador de pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    
+    <!-- AutoTable importação -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js" defer></script>
+
+    <!-- jsPDF -->
 </head>
 <body>
     <section>
@@ -83,6 +92,12 @@
             </table>
             <button id="btn-fechar-resumo-mes">Fechar Resumo</button>
 
+        </div>
+
+
+        <div class="gerar-realatorio">
+            <h3>Deseja Gerar um Relatorio em PDF dos seus gastos totais ?</h3>
+            <button id="btn-gerar" onclick="gerarPDF()">📄  Gerar Relatorio  📄</button>
         </div>
     </section>
     

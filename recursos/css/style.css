@@ -451,6 +451,53 @@ td:nth-child(2) {
 }
 
 
+/* AREA DE GERAR RELATORIO */
+.gerar-relatorio {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    border: 2px dashed gray;
+    height: auto;
+    padding: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+}
+.gerar-relatorio h3 {
+    font-size: xx-large;
+    font-weight: 700;
+    color: #2E3A59;
+    width: 100%;
+    padding: 25px;
+    background-color: #EAEAEA;
+    border-radius: 10px ;
+
+
+}
+#btn-gerar {
+    padding: 30px;
+    width: 60%;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #ff2020;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    margin: 30px auto;
+}
+#btn-gerar:hover {
+    cursor: pointer;
+    background-color: #940101;
+}
+
+
 
 
 
